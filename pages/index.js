@@ -1,9 +1,7 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import React from 'react';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import appConfig from '../config.json';
-
-
 
 function Titulo(props) {
   const Tag = props.tag || 'h1';
@@ -35,19 +33,16 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-    // const username = 'AIemao';  
-    const [username, setUsername] = React.useState('AIemao');
-    //console.log('stateDoReact', stateDoReact); Para chamar no console
-    const roteamento = useRouter();
-    //console.log('roteamento');
+  // const username = 'AIemao';
+  const [username, setUsername] = React.useState('AIemao');
+  const roteamento = useRouter();
 
   return (
     <>
-      
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary[200],
+          backgroundColor: appConfig.theme.colors.primary[500],
           backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/10/board-games-collection-shelf.jpg)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
@@ -74,25 +69,36 @@ export default function PaginaInicial() {
               infosDoEvento.preventDefault();
               console.log('Alguém submeteu o form');
               roteamento.push('/chat');
-              //window.location.href= '/chat'
+              // window.location.href = '/chat';
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
           >
-            <Titulo tag="h2">Chega Mais!</Titulo>
+            <Titulo tag="h2">Boas vindas de volta!</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
 
+            {/* <input
+                            type="text"
+                            value={username}
+                            onChange={function (event) {
+                                console.log('usuario digitou', event.target.value);
+                                // Onde ta o valor?
+                                const valor = event.target.value;
+                                // Trocar o valor da variavel
+                                // através do React e avise quem precisa
+                                setUsername(valor);
+                            }}
+                        /> */}
             <TextField
               value={username}
               onChange={function (event) {
                 console.log('usuario digitou', event.target.value);
-                //Cade o valor de cima? (o valor da função event se nao cria uma varialvel nao tem como setar(setUsename))
+                // Onde ta o valor?
                 const valor = event.target.value;
-                //Trocar o valor da variavel, e avisar a p*rra (atraves do React) que esta att a variavel
                 // Trocar o valor da variavel
                 // através do React e avise quem precisa
                 setUsername(valor);
@@ -107,19 +113,18 @@ export default function PaginaInicial() {
                 },
               }}
             />
-            
-          <Button
-            type='submit'
-            label='Entrar'
-            fullWidth
-            buttonColors={{
-              contrastColor: appConfig.theme.colors.neutrals["000"],
-              mainColor: appConfig.theme.colors.primary[500],
-              mainColorLight: appConfig.theme.colors.primary[400],
-              mainColorStrong: appConfig.theme.colors.primary[600],
-            }}
-          />
-        </Box>
+            <Button
+              type='submit'
+              label='Entrar'
+              fullWidth
+              buttonColors={{
+                contrastColor: appConfig.theme.colors.neutrals["000"],
+                mainColor: appConfig.theme.colors.primary[500],
+                mainColorLight: appConfig.theme.colors.primary[400],
+                mainColorStrong: appConfig.theme.colors.primary[600],
+              }}
+            />
+          </Box>
           {/* Formulário */}
 
 
